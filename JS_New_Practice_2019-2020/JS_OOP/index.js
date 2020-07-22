@@ -326,3 +326,35 @@ class Calculator{
 }
 
 let calc = new Calculator(2);
+
+
+/*encapsulation*/
+
+function Encapsulation(name){
+  let userName = name;
+  return Object.freeze({
+    getName(){
+      return userName;
+    },
+    setName(name){
+      userName = name;
+    }
+  });
+}
+const denis = new Encapsulation('Denis');
+
+
+function Encapsulation_1(name){
+  const symbol = Symbol(name);//gives personal ID for property
+
+  return {
+    [symbol]: name,
+    getName(){
+      return this[symbol];//how use symbol
+    },
+    setName(name){
+      this[symbol] = name;//how change symbol
+    }
+  };
+}
+const vlad = new Encapsulation_1('Vlad');
